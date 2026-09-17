@@ -381,19 +381,13 @@ router.get("/bulk", async (req, res) => {
             }))
         });
 
-    } catch (error) {
+   } catch (error) {
+    console.error("SIGNIN ERROR:", error);
 
-        console.error(
-            "BULK USER ERROR:",
-            error
-        );
-
-
-        return res.status(500).json({
-
-            message: "Something went wrong"
-        });
-    }
+    return res.status(500).json({
+        message: error.message
+    });
+}
 });
 
 
